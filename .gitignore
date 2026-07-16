@@ -1,0 +1,11 @@
+node_modules
+.next
+.env*
+!.env.example
+coverage
+import-report*.json
+.sisober-storage
+*.tsbuildinfo
+outputs
+tmp
+.vercel

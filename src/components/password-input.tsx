@@ -1,0 +1,4 @@
+"use client";
+import {useState} from "react";import {Eye,EyeOff} from "lucide-react";import {cn} from "@/lib/utils";
+type Props=React.InputHTMLAttributes<HTMLInputElement>;
+export function PasswordInput({className,...props}:Props){const [visible,setVisible]=useState(false),label=props["aria-label"]??(props.name==="password"?"Kata sandi":props.name?.replaceAll("_"," "));return <div className="relative"><input {...props} aria-label={label} type={visible?"text":"password"} className={cn("field pr-12",className)}/><button type="button" onClick={()=>setVisible(x=>!x)} aria-label={visible?"Sembunyikan kata sandi":"Tampilkan kata sandi"} aria-pressed={visible} className="absolute right-1.5 top-1/2 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-md text-[var(--muted)] hover:bg-slate-100 hover:text-[var(--ink)]">{visible?<EyeOff size={18}/>:<Eye size={18}/>}</button></div>}

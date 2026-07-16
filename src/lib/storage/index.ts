@@ -1,0 +1,2 @@
+import "server-only";import {GoogleDriveStorage} from "./google-drive";import {MockDriveStorage} from "./mock-drive";
+export function driveStorage(){if(process.env.DRIVE_STORAGE_ADAPTER==="google"){if(!process.env.GOOGLE_SERVICE_ACCOUNT_JSON_BASE64||!process.env.GOOGLE_DRIVE_ROOT_FOLDER_ID)throw new Error("Google Drive credentials are incomplete");return new GoogleDriveStorage(process.env.GOOGLE_DRIVE_ROOT_FOLDER_ID,process.env.GOOGLE_DRIVE_ID);}return new MockDriveStorage();}
