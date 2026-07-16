@@ -9,3 +9,5 @@ import-report*.json
 outputs
 tmp
 .vercel
+supabase/.temp
+supabase/.branches
