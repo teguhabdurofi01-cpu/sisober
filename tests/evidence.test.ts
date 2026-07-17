@@ -1,0 +1,2 @@
+import {describe,expect,it} from "vitest";import {validateEvidenceMetadata} from "@/lib/evidence";
+describe("evidence metadata",()=>{it("accepts supported video evidence",()=>expect(()=>validateEvidenceMetadata("repair.mp4","video/mp4",25*1024*1024)).not.toThrow());it("rejects mismatched extensions",()=>expect(()=>validateEvidenceMetadata("repair.exe","video/mp4",100)).toThrow("Unsupported"));it("enforces the configured size ceiling",()=>expect(()=>validateEvidenceMetadata("repair.mp4","video/mp4",251*1024*1024,250*1024*1024)).toThrow("File size"));});
