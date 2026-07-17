@@ -11,3 +11,4 @@ tmp
 .vercel
 supabase/.temp
 supabase/.branches
+.env*
