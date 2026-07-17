@@ -12,7 +12,8 @@ export function CompanyWordmark({className = "", priority = false}: BrandProps) 
 }
 
 export function AuthBrand() {
-  return <Link href="/login" aria-label="SISOBER — PT Sulawesi Cahaya Mineral" className="mb-6 block w-fit max-w-[280px] rounded-xl bg-white p-2 transition hover:opacity-90">
-    <CompanyWordmark priority className="w-full" />
+  return <Link href="/login" aria-label="SISOBER — PT Sulawesi Cahaya Mineral" className="auth-brand">
+    <CompanyMark priority className="auth-brand-mark" />
+    <span className="auth-brand-copy"><strong>PT Sulawesi Cahaya Mineral</strong><small>Safety Operations</small></span>
   </Link>;
 }
