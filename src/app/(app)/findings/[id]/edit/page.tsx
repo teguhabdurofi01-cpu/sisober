@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { Save } from "lucide-react";
 import { updateFinding } from "@/app/actions";
 import { requireUserOrRedirect } from "@/lib/supabase/server";
+import { SubmitButton } from "@/components/submit-button";
 
 const statuses = ["OPEN", "PENDING_VERIFICATION", "REVISION_REQUIRED", "CLOSED"];
 const evidenceRequirements = ["NONE", "OPTIONAL", "REQUIRED"];
@@ -38,7 +39,7 @@ export default async function EditFinding({ params, searchParams }: { params: Pr
       <label className="text-sm font-bold">Target<input className="field mt-1" type="date" name="target_date" defaultValue={finding.target_date || ""} /></label>
       <label className="text-sm font-bold">Status<select className="field mt-1" name="current_status" defaultValue={finding.current_status}>{statuses.map((status) => <option key={status} value={status}>{status.replaceAll("_", " ")}</option>)}</select></label>
       <label className="text-sm font-bold">Persyaratan bukti<select className="field mt-1" name="evidence_requirement" defaultValue={finding.evidence_requirement}>{evidenceRequirements.map((requirement) => <option key={requirement} value={requirement}>{requirement}</option>)}</select></label>
-      <button className="btn sm:col-span-2"><Save size={16} className="mr-2" />Simpan perubahan</button>
+      <SubmitButton className="btn sm:col-span-2" pendingLabel="Menyimpan perubahan…"><Save size={16} className="mr-2" />Simpan perubahan</SubmitButton>
     </form>
   </>;
 }
